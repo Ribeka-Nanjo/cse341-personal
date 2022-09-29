@@ -23,7 +23,7 @@ exports.create = (req, res) => {
 		});
 };
 
-exports.getAll = (req, res) => {
+exports.getAlluser = (req, res) => {
 	User.find({})
 		.then((data) => {
 			res.send(data);

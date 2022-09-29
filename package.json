@@ -11,17 +11,8 @@
 		"format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
 		"swagger": "node ./swagger.js"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Ribeka-Nanjo/cse341-personal.git"
-	},
-	"keywords": [],
-	"author": "",
+	"author": "Ribeka Nanjo",
 	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Ribeka-Nanjo/cse341-personal/issues"
-	},
-	"homepage": "https://github.com/Ribeka-Nanjo/cse341-personal#readme",
 	"dependencies": {
 		"body-parser": "^1.20.0",
 		"dotenv": "^16.0.2",
@@ -36,6 +27,7 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"nodemon": "^2.0.20",
-		"prettier": "^2.7.1"
+		"prettier": "^2.7.1",
+		"swagger-autogen": "^2.22.0"
 	}
 }
