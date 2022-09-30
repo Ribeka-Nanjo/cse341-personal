@@ -24,5 +24,5 @@ module.exports = (mongoose) => {
 		},
 	});
 
-	return mongoose.model("wardmembers", memberSchema);
+	return mongoose.model("wardmember", memberSchema);
 };
