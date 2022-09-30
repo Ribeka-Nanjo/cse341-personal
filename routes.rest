@@ -1,0 +1,12 @@
+//Localhost
+//get all record
+### GET 
+http://localhost:8080/wardmember HTTP/1.1
+
+
+//Render
+### GET 
+https://cse341-personal.onrender.com/wordmember HTTP/1.1
+
+### GET 
+https://cse341-personal.onrender.com/wordmember/633640d4e193daf7b271aaa4 HTTP/1.1
