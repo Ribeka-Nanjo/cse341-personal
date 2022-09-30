@@ -1,0 +1,20 @@
+[
+	{
+		"firstname": "Christy",
+		"lastName": "Noran",
+		"email": "cristy@test.com",
+		"phoneNumber": "213-1233-1232",
+		"baptismal_day": "2002-09-31",
+		"mission_year": "2005-02-02",
+		"calling": "Primary teacher"
+	},
+	{
+		"firstname": "Lena",
+		"lastName": "Green",
+		"email": "lenag@test.com",
+		"phoneNumber": "333-4433-5532",
+		"baptismal_day": "1999-02-01",
+		"mission_year": "2021-10-14",
+		"calling": "Ward missionary"
+	}
+]
