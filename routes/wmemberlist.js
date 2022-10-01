@@ -5,8 +5,8 @@ const memberController = require("../controllers/wmemberlist");
 
 router.post("/", memberController.createMember);
 
-router.get("/", memberController.getMember);
+router.get("/:id", memberController.getMember);
 
-router.get("/:id", memberController.getAll);
+router.get("/", memberController.getAll);
 
 module.exports = router;
