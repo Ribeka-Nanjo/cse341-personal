@@ -4,17 +4,17 @@
 		"lastName": "Noran",
 		"email": "cristy@test.com",
 		"phoneNumber": "213-1233-1232",
-		"baptismal_day": "2002-09-31",
-		"mission_year": "2005-02-02",
-		"calling": "Primary teacher"
+		"streetAddress": "123 Bolling Street #310, Seattle, WA 9800",
+		"birthday": "1963-01-04",
+		"placeOfbirth": "Seattle"
 	},
 	{
 		"firstname": "Lena",
 		"lastName": "Green",
 		"email": "lenag@test.com",
 		"phoneNumber": "333-4433-5532",
-		"baptismal_day": "1999-02-01",
-		"mission_year": "2021-10-14",
-		"calling": "Ward missionary"
+		"streetAddress": "123 Orange Street, New York, NY 10001",
+		"birthday": "1998-10-14",
+		"placeOfbirth": "Utah"
 	}
 ]

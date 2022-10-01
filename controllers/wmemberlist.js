@@ -25,7 +25,8 @@ exports.createMember = (req, res) => {
 };
 
 exports.getMember = (req, res) => {
-	User.find({})
+	wMember
+		.find({})
 		.then((data) => {
 			res.send(data);
 		})
@@ -40,7 +41,8 @@ exports.getMember = (req, res) => {
 
 exports.getAll = (req, res) => {
 	const username = req.params.username;
-	User.find({ username: username })
+	wMember
+		.find({ username: username })
 		.then((data) => {
 			res.send(data);
 		})

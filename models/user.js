@@ -1,16 +1,16 @@
 module.exports = (mongoose) => {
 	const userSchema = mongoose.Schema({
-		id: {
+		recordNumber: {
 			type: String,
 		},
 
-		usename: {
-			type: String,
+		baptismalDay: {
+			type: Date,
 		},
-		password: {
+		Calling: {
 			type: String,
 		},
 	});
 
-	return mongoose.model("users", userSchema);
+	return mongoose.model("user", userSchema);
 };
