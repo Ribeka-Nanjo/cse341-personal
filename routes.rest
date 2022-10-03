@@ -7,15 +7,15 @@ GET http://localhost:8080/wmemberlist HTTP/1.1
 PUT http://localhost:8080/wmemberlist/63364a0ee193daf7b271aac7 HTTP/1.1
 Content-Type: application/json
 
-	# {
-	# 	"firstname": "Christy",
-	# 	"lastName": "Noran",
-	# 	"email": "cristy@test.com",
-	# 	"phoneNumber": "213-1233-1232",
-	# 	"streetAddress": "123 Bolling Street #310, Seattle, WA 9800",
-	# 	"birthday": "1963-01-04",
-	# 	"placeOfbirth": "Seattle"
-	# }
+	{
+		"firstname": "Christy",
+		"lastName": "Carl",
+		"email": "cristy@test.com",
+		"phoneNumber": "213-1233-1232",
+		"streetAddress": "123 Bolling Street #310, Seattle, WA 9800",
+		"birthday": "1963-01-04",
+		"placeOfbirth": "Seattle"
+	}
 
 
 //Render

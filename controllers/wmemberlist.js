@@ -2,7 +2,7 @@ const db = require("../models");
 const wMember = db.user;
 
 const getAll = async (req, res, next) => {
-	await model
+	await wMember
 		.find()
 		.then((data) => res.status(200).json(data))
 		.catch((err) => next(createError(500, err)));
@@ -11,7 +11,7 @@ const getAll = async (req, res, next) => {
 const getById = async (req, res, next) => {
 	const { id } = req.params;
 
-	await model
+	await wMember
 		.getById(id)
 		.then((data) => {
 			if (!data)
@@ -35,12 +35,12 @@ const create = async (req, res, next) => {
 		.then(async (valid) => {
 			console.log(valid);
 			// Data to database
-			await model
+			await wMember
 				.create(valid)
 				.then((r) =>
 					res.status(201).json({
 						message: "The memberlist was created successfully",
-						streamingId: r.id,
+						memberlistId: r.id,
 					})
 				)
 				.catch((err) =>
@@ -65,7 +65,7 @@ const update = async (req, res, next) => {
 		.validateAsync(memberlist)
 		.then(async (valid) => {
 			console.log(valid);
-			await model
+			await wMember
 				.getByIdAndUpdate(id, valid)
 				.then((r) => {
 					if (!r)
@@ -89,7 +89,7 @@ const remove = async (req, res, next) => {
 
 	// Process data to database
 	res.setHeader("content-type", "application/json");
-	await model
+	await wMember
 		.getByIdAndDelete(id)
 		.then((r) => {
 			if (!r)
@@ -104,6 +104,14 @@ const remove = async (req, res, next) => {
 				.json({ message: "The memberlist was deleted successfully" });
 		})
 		.catch((err) => next(createError(500, err)));
+};
+
+module.exports = {
+	getAll,
+	getById,
+	create,
+	update,
+	remove,
 };
 
 // exports.createMember = (req, res) => {
@@ -159,11 +167,3 @@ const remove = async (req, res, next) => {
 // 			});
 // 		});
 // };
-
-module.exports = {
-	getAll,
-	getById,
-	create,
-	update,
-	remove,
-};
