@@ -19,7 +19,7 @@
 		"/user/": {
 			"get": {
 				"description": "user had each member's imformation detail",
-				"parameters": [],
+				"parameters": ["application/json"],
 				"responses": {
 					"200": {
 						"description": "OK"
@@ -67,14 +67,7 @@
 		"/user/{id}": {
 			"get": {
 				"description": "Find a user list by ID",
-				"parameters": [
-					{
-						"name": "user_id",
-						"in": "path",
-						"required": true,
-						"type": "string"
-					}
-				],
+				"parameters": ["application/json"],
 				"responses": {
 					"200": {
 						"description": "OK"
@@ -197,7 +190,7 @@
 
 		"get": {
 			"description": "Get all memberlists ",
-			"parameters": [],
+			"parameters": ["application/json"],
 			"responses": {
 				"200": {
 					"description": "OK"
@@ -211,14 +204,7 @@
 	"/wmemberlist/{memberlist_id}": {
 		"get": {
 			"description": "Find a member list by ID",
-			"parameters": [
-				{
-					"name": "memberlist_id",
-					"in": "path",
-					"required": true,
-					"type": "string"
-				}
-			],
+			"parameters": ["application/json"],
 			"responses": {
 				"200": {
 					"description": "OK"

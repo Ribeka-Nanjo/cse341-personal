@@ -3,6 +3,10 @@
 ### GET wmemberlist
 GET http://localhost:8080/wmemberlist HTTP/1.1
 
+### GET wmemberlist
+GET http://localhost:8080/wmemberlist/63364a0ee193daf7b271aac8 HTTP/1.1
+
+
 ###PUT wmemberlist
 PUT http://localhost:8080/wmemberlist/63364a0ee193daf7b271aac7 HTTP/1.1
 Content-Type: application/json
