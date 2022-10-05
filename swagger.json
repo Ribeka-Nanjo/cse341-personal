@@ -16,10 +16,11 @@
 				"responses": {}
 			}
 		},
-		"/user/": {
+		"/user": {
 			"get": {
 				"description": "user had each member's imformation detail",
-				"parameters": ["application/json"],
+				"parameters": [],
+				"produces": ["application/json"],
 				"responses": {
 					"200": {
 						"description": "OK"
@@ -31,6 +32,7 @@
 			},
 			"post": {
 				"description": "Update a member list's information",
+				"produces": ["application/json"],
 				"parameters": [
 					{
 						"name": "body",
@@ -67,7 +69,15 @@
 		"/user/{id}": {
 			"get": {
 				"description": "Find a user list by ID",
-				"parameters": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "user_id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "OK"
@@ -80,6 +90,7 @@
 		},
 		"put": {
 			"description": "Find a user list and update the information",
+			"produces": ["application/json"],
 			"parameters": [
 				{
 					"name": "user_id",
@@ -190,7 +201,7 @@
 
 		"get": {
 			"description": "Get all memberlists ",
-			"parameters": ["application/json"],
+			"parameters": [],
 			"responses": {
 				"200": {
 					"description": "OK"
@@ -204,7 +215,14 @@
 	"/wmemberlist/{memberlist_id}": {
 		"get": {
 			"description": "Find a member list by ID",
-			"parameters": ["application/json"],
+			"parameters": [
+				{
+					"name": "memberlist_id",
+					"in": "path",
+					"required": true,
+					"type": "string"
+				}
+			],
 			"responses": {
 				"200": {
 					"description": "OK"

@@ -22,7 +22,7 @@ Content-Type: application/json
 	}
 
 
-//Render
+//Render- Ward list
 ### 
 GET https://cse341-personal.onrender.com/wmemberlist HTTP/1.1
 
@@ -61,3 +61,7 @@ Content-Type: application/application/json
 DELETE  http://localhost:8080/wmemberlist/63364a0ee193daf7b271aac8 HTTP/1.1
 
 
+//Render- User
+
+### 
+GET https://cse341-personal.onrender.com/user HTTP/1.1
