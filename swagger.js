@@ -6,7 +6,7 @@ const doc = {
 		description: "This is my API",
 	},
 	host: "cse341-personal.onrender.com",
-	schemes: ["https"],
+	schemes: ["https", "http"],
 };
 
 const outputFile = "./routes/swagger.js";
