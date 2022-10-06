@@ -14,9 +14,18 @@ app.use(cors())
 	.use(bodyParser.json())
 	.use((req, res, next) => {
 		res.setHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader(
+			"Access-Control-Allow-Headers",
+
+			"Origin, X-Requested-With, Content-Type, Accept, Z-Key"
+		);
+
+		res.setHeader(
+			"Access-Control-Allow-Methods",
+			"GET, POST, PUT, DELETE, OPTIONS"
+		);
 		next();
-	})
-	.use("/", require("./routes"));
+	});
 
 const db = require("./models");
 db.mongoose
@@ -33,6 +42,8 @@ db.mongoose
 		console.log("Cannot connect to the database!", err);
 		process.exit();
 	});
+
+app.use("/", require("./routes"));
 
 // app.listen(port);
 // console.log(`Connected to DB and listening on ${port}`);
