@@ -7,6 +7,6 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.user = require("./user.js")(mongoose);
-db.wordmemberList = require("./wmemberlist.js")(mongoose);
+db.wardmemberList = require("./wmemberlist.js")(mongoose);
 
 module.exports = db;

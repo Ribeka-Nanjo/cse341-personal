@@ -1,5 +1,5 @@
 const db = require("../models");
-const wMember = db.user;
+const wMember = db.wardmemberList;
 
 const getAll = async (req, res, next) => {
 	await wMember

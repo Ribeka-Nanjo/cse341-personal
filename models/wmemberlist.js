@@ -25,5 +25,5 @@ module.exports = (mongoose) => {
 	});
 
 	//the file name of MongoDB
-	return mongoose.model("wardmembers", memberSchema);
+	return mongoose.model("Wardmember", memberSchema);
 };
