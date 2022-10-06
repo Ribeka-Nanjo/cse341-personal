@@ -200,6 +200,7 @@
 
 			"get": {
 				"description": "Get all memberlists ",
+				"produces": ["application/json"],
 				"parameters": [
 					{
 						"name": "body",
@@ -246,6 +247,7 @@
 		"/wmemberlist/{memberlist_id}": {
 			"get": {
 				"description": "Find a member list by ID",
+				"produces": ["application/json"],
 				"parameters": [
 					{
 						"name": "memberlist_id",

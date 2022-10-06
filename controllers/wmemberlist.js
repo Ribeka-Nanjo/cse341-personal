@@ -1,4 +1,4 @@
-const db = require("../models/wmemberlist");
+const db = require("../models");
 const wMember = db.wardmemberList;
 
 const getAll = async (req, res, next) => {
