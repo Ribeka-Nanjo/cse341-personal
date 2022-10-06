@@ -12,7 +12,7 @@ const getById = async (req, res, next) => {
 	const { id } = req.params;
 
 	await wMember
-		.getById(id)
+		.findById(id)
 		.then((data) => {
 			if (!data)
 				return next(
