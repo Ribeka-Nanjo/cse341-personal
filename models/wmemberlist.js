@@ -13,13 +13,13 @@ module.exports = (mongoose) => {
 		phoneNumber: {
 			type: String,
 		},
-		streetAddress: {
-			type: String,
-		},
 		birthday: {
 			type: Date,
 		},
 		placeOfbirth: {
+			type: String,
+		},
+		streetAddress: {
 			type: String,
 		},
 	});

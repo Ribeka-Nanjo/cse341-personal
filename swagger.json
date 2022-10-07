@@ -31,7 +31,7 @@
 				}
 			},
 			"post": {
-				"description": "Update a member list's information",
+				"description": "create a member list's information",
 				"produces": ["application/json"],
 				"parameters": [
 					{
@@ -66,18 +66,11 @@
 				}
 			}
 		},
-		"/user/{id}": {
+		"/user/{user_id}": {
 			"get": {
-				"description": "Find a user list by ID",
+				"description": "get user information by ID",
+				"parameters": [],
 				"produces": ["application/json"],
-				"parameters": [
-					{
-						"name": "user_id",
-						"in": "path",
-						"required": true,
-						"type": "string"
-					}
-				],
 				"responses": {
 					"200": {
 						"description": "OK"
@@ -88,8 +81,7 @@
 				}
 			},
 			"put": {
-				"description": "Find a user list and update the information",
-				"produces": ["application/json"],
+				"description": "Find user and update the information by ID",
 				"parameters": [
 					{
 						"name": "user_id",
@@ -118,7 +110,7 @@
 				],
 				"responses": {
 					"204": {
-						"description": "Successfully updated"
+						"description": "successfully updated"
 					},
 					"400": {
 						"description": "Bad Request"
@@ -129,7 +121,7 @@
 				}
 			},
 			"delete": {
-				"description": "Find a member list by ID and delete the information",
+				"description": "delete user information",
 				"parameters": [
 					{
 						"name": "user_id",
@@ -150,11 +142,24 @@
 		},
 
 		"/wmemberlist/": {
+			"get": {
+				"description": "Get all memberlists ",
+				"produces": ["application/json"],
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"400": {
+						"description": "Bad Request"
+					}
+				}
+			},
 			"post": {
 				"description": "Create new a member",
 				"parameters": [
 					{
-						"name": "body",
+						"name": "memberlist_id",
 						"in": "body",
 						"schema": {
 							"type": "object",
@@ -196,34 +201,14 @@
 						"description": "Internal Server Error"
 					}
 				}
-			},
-
-			"get": {
-				"description": "Get all memberlists ",
-				"produces": ["application/json"],
-				"parameters": [],
-				"responses": {
-					"200": {
-						"description": "OK"
-					},
-					"400": {
-						"description": "Bad Request"
-					}
-				}
 			}
 		},
+
 		"/wmemberlist/{memberlist_id}": {
 			"get": {
 				"description": "Find a member list by ID",
 				"produces": ["application/json"],
-				"parameters": [
-					{
-						"name": "memberlist_id",
-						"in": "path",
-						"required": true,
-						"type": "string"
-					}
-				],
+				"parameters": [],
 				"responses": {
 					"200": {
 						"description": "OK"
@@ -237,7 +222,7 @@
 				}
 			},
 			"put": {
-				"description": "Find a memberlist and update the information",
+				"description": "Find a memberlist and update the information by ID",
 				"parameters": [
 					{
 						"name": "memberlist_id",
@@ -264,13 +249,13 @@
 								"phoneNumber": {
 									"type": "String"
 								},
-								"streetAddress": {
-									"type": "String"
-								},
 								"birthday": {
 									"type": "Date"
 								},
 								"placeOfbirth": {
+									"type": "String"
+								},
+								"streetAddress": {
 									"type": "String"
 								}
 							}
