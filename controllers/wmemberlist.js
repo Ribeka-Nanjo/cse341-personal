@@ -27,11 +27,11 @@ const getById = async (req, res, next) => {
 };
 
 const create = async (req, res, next) => {
-	const memberlist = req.body;
+	const wmemberlist = req.body;
 	res.setHeader("content-type", "application/json");
 
 	await memberSchema
-		.validateAsync(memberlist)
+		.validateAsync(wmemberlist)
 		.then(async (valid) => {
 			console.log(valid);
 			// Data to database
@@ -58,15 +58,14 @@ const create = async (req, res, next) => {
 
 const update = async (req, res, next) => {
 	const { id } = req.params;
-	const memberlist = req.body;
-	res.setHeader("content-type", "application/json");
+	const wmemberlist = req.body;
 
 	await memberSchema
-		.validateAsync(memberlist)
+		.validateAsync(wmemberlist)
 		.then(async (valid) => {
 			console.log(valid);
 			await wMember
-				.getByIdAndUpdate(id, valid)
+				.findByIdAndUpdate(id, valid)
 				.then((r) => {
 					if (!r)
 						return next(
@@ -113,57 +112,3 @@ module.exports = {
 	update,
 	remove,
 };
-
-// exports.createMember = (req, res) => {
-// 	// Validate request
-// 	if (!req.body.username || !req.body.password) {
-// 		res.status(400).send({ message: "Content can not be empty!" });
-// 		return;
-// 	}
-
-// 	const member = new wMember(req.body);
-// 	member
-// 		.save()
-// 		.then((data) => {
-// 			console.log(data);
-// 			res.status(201).send(data);
-// 		})
-// 		.catch((err) => {
-// 			res.status(500).send({
-// 				message:
-// 					err.message ||
-// 					"Some error occurred while creating the user.",
-// 			});
-// 		});
-// };
-
-// exports.getMember = (req, res) => {
-// 	wMember
-// 		.find({})
-// 		.then((data) => {
-// 			res.send(data);
-// 		})
-// 		.catch((err) => {
-// 			res.status(500).send({
-// 				message:
-// 					err.message ||
-// 					"Some error occurred while retrieving users.",
-// 			});
-// 		});
-// };
-
-// exports.getAll = (req, res) => {
-// 	const username = req.params.username;
-// 	wMember
-// 		.find({ username: username })
-// 		.then((data) => {
-// 			res.send(data);
-// 		})
-// 		.catch((err) => {
-// 			res.status(500).send({
-// 				message:
-// 					err.message ||
-// 					"Some error occurred while retrieving users.",
-// 			});
-// 		});
-// };

@@ -1,6 +1,6 @@
 module.exports = (mongoose) => {
 	const memberSchema = mongoose.Schema({
-		firstname: {
+		firstName: {
 			type: String,
 		},
 

@@ -9,6 +9,17 @@
 	"basePath": "/",
 	"schemes": ["https", "http"],
 	"paths": {
+		"/": {
+			"get": {
+				"description": "",
+				"parameters": [],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
 		"/api-docs": {
 			"get": {
 				"description": "",
@@ -19,8 +30,8 @@
 		"/user": {
 			"get": {
 				"description": "user had each member's imformation detail",
-				"parameters": [],
 				"produces": ["application/json"],
+				"parameters": [],
 				"responses": {
 					"200": {
 						"description": "OK"
@@ -32,7 +43,6 @@
 			},
 			"post": {
 				"description": "create a member list's information",
-				"produces": ["application/json"],
 				"parameters": [
 					{
 						"name": "body",
@@ -54,7 +64,7 @@
 					}
 				],
 				"responses": {
-					"201": {
+					"200": {
 						"description": "Successfully created"
 					},
 					"400": {
@@ -69,8 +79,16 @@
 		"/user/{user_id}": {
 			"get": {
 				"description": "get user information by ID",
-				"parameters": [],
 				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "user_id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+
 				"responses": {
 					"200": {
 						"description": "OK"
@@ -164,7 +182,7 @@
 						"schema": {
 							"type": "object",
 							"properties": {
-								"firstname": {
+								"firstName": {
 									"type": "string"
 								},
 
@@ -208,7 +226,14 @@
 			"get": {
 				"description": "Find a member list by ID",
 				"produces": ["application/json"],
-				"parameters": [],
+				"parameters": [
+					{
+						"name": "memberlist_id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
 				"responses": {
 					"200": {
 						"description": "OK"
@@ -236,7 +261,7 @@
 						"schema": {
 							"type": "object",
 							"properties": {
-								"firstname": {
+								"firstName": {
 									"type": "string"
 								},
 
@@ -263,7 +288,7 @@
 					}
 				],
 				"responses": {
-					"204": {
+					"200": {
 						"description": "successfully updated"
 					},
 					"400": {

@@ -1,6 +1,7 @@
 const express = require("express");
 const { route } = require("./swagger");
 const router = express.Router();
+const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //connect to the previous files
 router.use("/", require("./swagger"));
@@ -11,7 +12,7 @@ router.use("/auth", require("./auth"));
 //Handlebars
 //@desc Login/Landing page
 // @route GET /
-router.get("/", (req, res) => {
+router.get("/", ensureGuest, (req, res) => {
 	res.render("login", {
 		layout: "login",
 	});
@@ -20,7 +21,8 @@ router.get("/", (req, res) => {
 // @desc Dashboard
 // @route GET /dashboard
 
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", ensureAuth, (req, res) => {
+	console.log(req.user);
 	res.render("dashboard");
 });
 

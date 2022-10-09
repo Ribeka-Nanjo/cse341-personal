@@ -1,8 +1,8 @@
+require("dotenv").config();
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const mongoose = require("mongoose");
-const Userp = require("../models/userp");
+const Userp = require("../models/Userp");
 
-module.exports = function (passport) {
+module.exports = (passport) => {
 	passport.use(
 		new GoogleStrategy(
 			{
@@ -15,8 +15,8 @@ module.exports = function (passport) {
 				const newUser = {
 					googleId: profile.id,
 					displayName: profile.displayName,
-					firstName: profile.givenName,
-					lastName: profile.familyName,
+					firstName: profile.name.givenName,
+					lastName: profile.name.familyName,
 					image: profile.photos[0].value,
 				};
 
