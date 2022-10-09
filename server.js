@@ -1,14 +1,45 @@
+const path = require("path");
 const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-require("dotenv/config");
+const dotenv = require("dotenv");
+const morgan = require("morgan");
+const exphbs = require("express-handlebars");
+const passport = require("passport");
 
-const port = process.env.PORT || 8080;
+const session = require("express-session");
+
+// Log config
+dotenv.config({ path: ".env" });
+
+// Passport config
+require("./config/passport")(passport);
+
 const app = express();
+const PORT = process.env.PORT || 8080;
 
-// app.get("/", (req, res) => {
-// 	res.send("Hello World!");
-// });
+//Logging
+if (process.env.NODE_ENV === "development") {
+	app.use(morgan("dev"));
+}
+
+// Handlebars
+app.engine(".hbs", exphbs.engine({ defaultLayout: "main", extname: ".hbs" }));
+app.set("view engine", ".hbs");
+
+//Sessions
+app.use(
+	session({
+		secret: "keyboard cat",
+		resave: false,
+		saveUninitialized: false,
+	})
+);
+
+//Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(cors())
 	.use(bodyParser.json())
@@ -27,6 +58,7 @@ app.use(cors())
 		next();
 	});
 
+//Mongo DB and Server
 const db = require("./models");
 db.mongoose
 	.connect(db.url, {
@@ -34,8 +66,10 @@ db.mongoose
 		useUnifiedTopology: true,
 	})
 	.then(() => {
-		app.listen(port, () => {
-			console.log(`DB Connected and server running on ${port}.`);
+		app.listen(PORT, () => {
+			console.log(
+				`DB Connected and Server running in ${process.env.NODE_ENV} mode on port ${PORT}.`
+			);
 		});
 	})
 	.catch((err) => {
@@ -43,7 +77,7 @@ db.mongoose
 		process.exit();
 	});
 
-app.use("/", require("./routes"));
+// Static folder
+app.use(express.static(path.join(__dirname, "public")));
 
-// app.listen(port);
-// console.log(`Connected to DB and listening on ${port}`);
+app.use("/", require("./routes"));

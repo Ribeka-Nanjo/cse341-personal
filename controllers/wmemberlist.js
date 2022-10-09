@@ -90,7 +90,7 @@ const remove = async (req, res, next) => {
 	// Process data to database
 	res.setHeader("content-type", "application/json");
 	await wMember
-		.getByIdAndDelete(id)
+		.findByIdAndDelete(id)
 		.then((r) => {
 			if (!r)
 				return next(

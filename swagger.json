@@ -102,7 +102,7 @@
 									"type": "Date"
 								},
 								"Calling": {
-									"type": "String"
+									"type": "string"
 								}
 							}
 						}
@@ -156,42 +156,42 @@
 				}
 			},
 			"post": {
-				"description": "Create new a member",
+				"description": "Create a new member list",
 				"parameters": [
 					{
-						"name": "memberlist_id",
+						"name": "body",
 						"in": "body",
 						"schema": {
 							"type": "object",
 							"properties": {
 								"firstname": {
-									"type": "String"
+									"type": "string"
 								},
 
 								"lastName": {
-									"type": "String"
+									"type": "string"
 								},
 								"email": {
-									"type": "String"
+									"type": "string"
 								},
 								"phoneNumber": {
-									"type": "String"
+									"type": "string"
 								},
 								"streetAddress": {
-									"type": "String"
+									"type": "string"
 								},
 								"birthday": {
 									"type": "Date"
 								},
 								"placeOfbirth": {
-									"type": "String"
+									"type": "string"
 								}
 							}
 						}
 					}
 				],
 				"responses": {
-					"201": {
+					"200": {
 						"description": "Successfully created"
 					},
 					"400": {
@@ -237,26 +237,26 @@
 							"type": "object",
 							"properties": {
 								"firstname": {
-									"type": "String"
+									"type": "string"
 								},
 
 								"lastName": {
-									"type": "String"
+									"type": "string"
 								},
 								"email": {
-									"type": "String"
+									"type": "string"
 								},
 								"phoneNumber": {
-									"type": "String"
+									"type": "string"
 								},
 								"birthday": {
 									"type": "Date"
 								},
 								"placeOfbirth": {
-									"type": "String"
+									"type": "string"
 								},
 								"streetAddress": {
-									"type": "String"
+									"type": "string"
 								}
 							}
 						}
